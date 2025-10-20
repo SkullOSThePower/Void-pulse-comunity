@@ -1,0 +1,14 @@
+body{
+    color:white;
+    background-color: black;
+}
+.napisy{
+    position: absolute;
+    top: 45%;
+    left: 45%;
+}
+.napisy2{
+    position: absolute;
+    top: 50%;
+    left: 45%;
+}
