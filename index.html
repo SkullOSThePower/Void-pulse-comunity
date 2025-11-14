@@ -1,84 +1,120 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>ⱽⱤⱤ VØID PULSE CØRE ⱤⱤ — pre alpha 1</title>
-  <link rel="stylesheet" href="styler.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ⱽⱤⱤ VØID PULSE CØRE ⱤⱤ</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: radial-gradient(circle at center, #000000 0%, #050505 40%, #000000 80%);
+      color: #e4e4e4;
+      overflow-x: hidden;
+    }
+    header {
+      padding: 60px 20px;
+      text-align: center;
+      animation: fadeIn 1.5s ease;
+    }
+    h1 {
+      font-size: 3rem;
+      letter-spacing: 3px;
+      margin-bottom: 20px;
+      text-shadow: 0 0 15px #6f00ff;
+    }
+    .join-btn {
+      background: #6f00ff;
+      border: none;
+      padding: 15px 40px;
+      font-size: 1.2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      color: #fff;
+      transition: 0.3s ease;
+      box-shadow: 0 0 20px #6f00ff;
+    }
+    .join-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 35px #8d2bff;
+    }
+    
+    .section-list {
+      width: 90%;
+      max-width: 800px;
+      margin: 40px auto;
+    }
+    .section {
+      background: #131313;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      box-shadow: 0 0 10px #000000aa;
+    }
+    .section:hover {
+      background: #1b1b1b;
+      box-shadow: 0 0 20px #6f00ff44;
+    }
+    .section h2 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+    .section-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.6s ease;
+      margin-top: 10px;
+      opacity: 0;
+    }
+    .section-content.active {
+      height: 70vh;
+      max-height: 70vh;
+      opacity: 1;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
 </head>
 <body>
-  <div id="bg">
-    <div class="smear s1"></div>
-    <div class="smear s2"></div>
-    <svg class="noise" aria-hidden="true" preserveAspectRatio="none" viewBox="0 0 600 200">
-      <filter id="grain"><feTurbulence baseFrequency="0.85" numOctaves="1" stitchTiles="stitch"/></filter>
-      <rect width="100%" height="100%" filter="url(#grain)" opacity="0.03"></rect>
-    </svg>
-  </div>
-
-  <header class="site-header">
-    <div class="title-wrap">
-      <h1 class="glitch-title" data-text="ⱽⱤⱤ VØID PULSE CØRE ⱤⱤ">ⱽⱤⱤ VØID PULSE CØRE ⱤⱤ</h1>
-      <div class="title-leak" aria-hidden="true"></div>
-    </div>
-    <p class="subtitle" id="subtitle">pre alpha 1</p>
+  <header>
+    <h1>ⱽⱤⱤ VØID PULSE CØRE ⱤⱤ</h1>
+    <button class="join-btn" onclick="window.location.href='WSTAW_TUTAJ_LINK_DO_SERWERA'">DOŁĄCZ DO SPOŁECZEŃSTWA</button>
   </header>
 
-  <main class="stage">
-    <section class="center-stage">
-      <div class="core-wrap" id="coreWrap" aria-label="Pulse core">
-        <div class="core" id="core">
-          <!-- SVG cracks overlay -->
-          <svg class="cracks" viewBox="0 0 300 300" preserveAspectRatio="none" aria-hidden="true">
-            <g stroke="rgba(255,59,59,0.12)" stroke-width="1.2" fill="none" stroke-linecap="round">
-              <path class="crack c1" d="M150 20 L142 80 L170 110 L130 140" />
-              <path class="crack c2" d="M150 20 L170 60 L210 78 L230 120" />
-              <path class="crack c3" d="M150 20 L120 56 L90 82 L70 120" />
-              <circle cx="150" cy="150" r="135" stroke="rgba(255,255,255,0.02)"/>
-            </g>
-          </svg>
-
-          <div class="core-ring"></div>
-
-          <div class="pointer" id="pointer" aria-hidden="true">
-            <div class="arrow"></div>
-          </div>
-        </div>
+  <div class="section-list">
+    <div class="section" onclick="toggleSection(this)">
+      <h2>Regulamin</h2>
+      <div class="section-content">
+        <p>Tu wpisz pełny regulamin w formie tekstowej. Rozwija się do 70% ekranu bez przechodzenia do podlinku.</p>
       </div>
-
-      <div class="lead">
-        <h2 class="lead-title">ENTER THE PULSE</h2>
-        <p class="desc">Glitch — red digital corruption. Pointer travels edge and points at your cursor. Touch-friendly.</p>
-      </div>
-
-      <div class="actions" id="actions">
-        <button class="btn main" id="openPanel">ACCESS</button>
-        <a class="btn ghost" id="joinBtn" href="https://discord.gg/M5HWVueTRV" target="_blank" rel="noopener noreferrer">JOIN</a>
-        <button class="btn alt" id="infoBtn">INFO</button>
-      </div>
-    </section>
-  </main>
-
-  <aside id="panel" aria-hidden="true">
-    <div class="panel-head">
-      <strong>PORTAL LINKS</strong>
-      <button id="closePanel" aria-label="Close panel">✕</button>
     </div>
 
-    <nav class="panel-links" id="panelLinks" aria-label="portal links">
-      <a href="/regulamin.html" class="p-link">Regulamin<span>zasady serwera</span></a>
-      <a href="/chat.html" class="p-link">Chat<span>rozmowy & kanały</span></a>
-      <a href="/community.html" class="p-link">Community<span>fora & media</span></a>
-      <a href="/events.html" class="p-link">Events<span>nadchodzące</span></a>
-      <a href="/status.html" class="p-link">Status console<span>telemetria rdzenia</span></a>
-      <a href="/czlonkowie.html" class="p-link">Członkowie<span>lista & role</span></a>
-    </nav>
+    <div class="section" onclick="toggleSection(this)">
+      <h2>Informacje</h2>
+      <div class="section-content">
+        <p>Wszelkie niezbędne dane, opisy systemów, rang, projektów itd.</p>
+      </div>
+    </div>
 
-    <div class="panel-foot">© VØID PULSE CØRE — pre alpha 1</div>
-  </aside>
+    <div class="section" onclick="toggleSection(this)">
+      <h2>Nowości</h2>
+      <div class="section-content">
+        <p>Aktualności, update logi, eventy i inne informacje.</p>
+      </div>
+    </div>
+  </div>
 
-  <div id="toast" aria-hidden="true"></div>
+  <script>
+    
 
-  <script src="script.js"></script>
+    function toggleSection(el) {
+      const content = el.querySelector('.section-content');
+      content.classList.toggle('active');
+    }
+  </script>
 </body>
 </html>
